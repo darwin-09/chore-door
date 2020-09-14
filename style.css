@@ -60,3 +60,9 @@ body {
     color: #010165;
     cursor: pointer;
   }
+
+  .winning-streak {
+      text-align: center;
+      color: white;
+      font-family: 'Work Sans';
+  }

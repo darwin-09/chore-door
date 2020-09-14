@@ -2,13 +2,15 @@ const doorImage1 = document.getElementById('door1');
 const doorImage2 = document.getElementById('door2');
 const doorImage3 = document.getElementById('door3');
 const startButton = document.getElementById('start');
+const winningStreak = document.getElementById('winning-streak')
+
 
 const botDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg';
 const beachDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg';
 const spaceDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg';
 const closedDoorPath = 'https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/closed_door.svg';
 
-
+let winningInnerHtml = 0;
 let numClosedDoors = 3;
 let currentlyPlaying = true;
 let openDoor1;
@@ -37,8 +39,13 @@ const playDoor = door => {
 
   if (numClosedDoors === 0) {
     gameOver('win');
+    winningInnerHtml++
+    winningStreak.innerText = winningInnerHtml;
+    
   } else if (isBot(door)){
     gameOver();
+    winningInnerHtml = 0
+    winningStreak.innerText = winningInnerHtml;
   }
 };
 
